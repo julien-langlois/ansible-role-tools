@@ -1,0 +1,11 @@
+---
+# Hostname
+remote_hostname: "HOST000"
+
+# MOTD
+
+# Prompt
+production_prompt_foreground_color: "31" # 31 means red
+staging_prompt_foreground_color: "33" # 33 means yellow
+development_prompt_foreground_color: "32" # 32 means green
+default_prompt_color: "{{ production_prompt_foreground_color }}"

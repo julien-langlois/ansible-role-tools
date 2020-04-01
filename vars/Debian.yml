@@ -1,0 +1,4 @@
+---
+__additionnal_packages:
+  - sudo
+  - ncdu

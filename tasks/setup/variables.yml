@@ -1,0 +1,16 @@
+---
+- name: Define additionnal_packages
+  set_fact:
+    additionnal_packages: "{{ __additionnal_packages | list }}"
+  when: additionnal_packages is not defined
+  tags:
+    - tools
+    - tools-packages
+
+- name: Define extra additionnal_packages
+  set_fact:
+    additionnal_packages: "{{ additionnal_packages | list + additionnal_packages_extra | list }}"
+  when: additionnal_packages_extra is defined
+  tags:
+    - tools
+    - tools-packages

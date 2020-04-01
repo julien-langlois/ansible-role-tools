@@ -1,0 +1,10 @@
+---
+# Setup variables and facts.
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+  tags:
+    - tools
+
+- import_tasks: setup/variables.yml
+  tags:
+    - tools
