@@ -1,0 +1,7 @@
+---
+- name: Install additional packages
+  package:
+    state: present
+    name: "{{ additionnal_packages }}"
+  tags:
+    - tools

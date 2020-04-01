@@ -5,7 +5,6 @@
   when: additionnal_packages is not defined
   tags:
     - tools
-    - tools-packages
 
 - name: Define extra additionnal_packages
   set_fact:
@@ -13,4 +12,3 @@
   when: additionnal_packages_extra is defined
   tags:
     - tools
-    - tools-packages
