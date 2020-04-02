@@ -10,6 +10,23 @@
     - tools
 
 # Install
-- import_tasks: setup/packages.yml
+- include_tasks: setup/packages.yml
+  tags:
+    - tools
+
+# Configuration
+- include_tasks: config/hostname.yml
+  tags:
+    - tools
+
+- include_tasks: config/motd.yml
+  tags:
+    - tools
+
+- include_tasks: config/prompt.yml
+  tags:
+    - tools
+
+- include_tasks: config/ssh.yml
   tags:
     - tools

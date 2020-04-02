@@ -1,0 +1,38 @@
+---
+- name: Create /var/www directories
+  file:
+    path: /var/www/
+    owner: www-data
+    group: www-data
+    recurse: yes
+  tags:
+    - tools
+
+- name: Create /var/www/.ssh
+  file:
+    path: /var/www/.ssh
+    state: directory
+    mode: 0700
+    owner: www-data
+    group: www-data
+    recurse: yes
+  tags:
+    - tools
+
+- name: Copy root authorized_keys file
+  copy:
+    src: /root/.ssh/authorized_keys
+    dest: /var/www/.ssh/authorized_keys
+    owner: www-data
+    group: www-data
+    remote_src: yes
+  tags:
+    - tools
+
+- name: Allow www-data to use SSH connection
+  lineinfile:
+    path: /etc/passwd
+    regexp: "^www-data"
+    line: "www-data:x:33:33:www-data:/var/www:/bin/bash"
+  tags:
+    - tools

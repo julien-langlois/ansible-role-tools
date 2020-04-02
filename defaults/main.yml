@@ -3,6 +3,18 @@
 remote_hostname: "HOST000"
 
 # MOTD
+motd_ascii_art: ""
+motd_sysadmins_email: ""
+motd_info:
+  - " FQDN:         ": "{{ ansible_fqdn }}"
+  - " Distro:       ": "{{ ansible_distribution }} {{ ansible_distribution_version }} {{ ansible_distribution_release }}"
+  - " Kernel:       ": "{{ ansible_kernel }}"
+  - " Virtual:      ": "{{ 'YES' if ansible_virtualization_role == 'guest' else 'NO' }}\n"
+  - " Public  IP:   ": "{{ ansible_host }}\n"
+  - " CPUs:         ": "{{ ansible_processor_vcpus }}"
+  - " RAM:          ": "{{ (ansible_memtotal_mb / 1000) | round(1) }}GB"
+  - " SWAP:         ": "{{ ansible_memory_mb.swap.used }}MB / {{ ansible_memory_mb.swap.total }}MB\n"
+  - " Python:       ": "{{ ansible_python_version }}"
 
 # Prompt
 production_prompt_foreground_color: "31" # 31 means red

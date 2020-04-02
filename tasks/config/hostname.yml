@@ -1,0 +1,17 @@
+---
+- name: Update hostname
+  hostname:
+    name: "{{ remote_hostname }}"
+  tags:
+    - tools
+
+- name: Update /etc/hosts file
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.0\.1'
+    line: "127.0.0.1 localhost {{ remote_hostname }}"
+    owner: root
+    group: root
+    mode: "0644"
+  tags:
+    - tools
