@@ -12,7 +12,7 @@ NOTE: System and application configuration for this host is managed by
 automated systems. To ensure that any changes you make here are not lost,
 please contact with your system administrator
 
-{% for item in ssh_motd_info %}
+{% for item in motd_info %}
 {% for key, value in item.items() %}
     {{ key }}{{ value }}
 {% endfor %}
